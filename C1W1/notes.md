@@ -33,6 +33,8 @@
 
 
 
+### Other notes
+
 ### Compiling and Linking
 
 In C++, the process to convert source code to an executable program involves several steps. Two key steps are compiling and linking.
