@@ -21,12 +21,6 @@ class OrderBookEntry
           product(_product),
           orderType(_orderType)
     {
-        //this->price = price;
-        // price = _price;
-        // amount = _amount;
-        // timestamp = _timestamp;
-        // product = _product;
-        // orderType = _orderType;
 
     }
 
@@ -73,63 +67,21 @@ void printMenu() {
 
 int main() 
 {
-    // double price = 5319.4502228;
-    // double amount = 0.00020075;
+    std::vector<OrderBookEntry> orders;
 
-    // std::string timestamp{"2020/03/17 17:01:24.884492"};
-    // std::string product{"BTC/USDT"};
-    // //std::string orderType{"bid"};
+    orders.push_back( OrderBookEntry{1000,
+                                0.02,
+                                "2020/03/17 17:01:24.884492",
+                                "BTC/USDT",
+                                OrderBookType::bid}
+                                );
 
-    // enum class OrderBookType{bid, ask};
-    // OrderBookType orderType = OrderBookType::ask;
+    orders.push_back( OrderBookEntry{2000,
+                                    0.02,
+                                    "2020/03/17 17:01:24.884492",
+                                    "BTC/USDT",
+                                    OrderBookType::bid}
+                                    );
 
-    // std::vector<double> prices;
-    // std::vector<double> amounts;
-    // std::vector<std::string> timestamps;
-    // std::vector<std::string> products;
-    // std::vector<OrderBookType> orderTypes;
-
-    // prices.push_back(5000.01);
-    // amounts.push_back(0.001);
-    // timestamps.push_back("2020/03/17 17:01:24.884492");
-    // products.push_back("BTC/USDT");
-    // orderTypes.push_back(OrderBookType::bid);
-
-    // std::cout << "prices " << prices[0] << std::endl;
-
-    // std::map<int, void(*)()> menu;
-    // menu[1] = printHelp;
-    // menu[2] = printMarketStats;
-    // menu[3] = enterOffer;
-    // menu[4] = enterBid;
-    // menu[5] = printWallet;
-    // menu[6] = goToNextTimeFrame;
-
-    // while (true) {
-    //     printMenu();
-    //     int userOption;
-    //     std::cin >> userOption;
-
-    //     auto it = menu.find(userOption); // find the userOption in map
-    //     if(it != menu.end()) {
-    //         // if found call the corresponding function
-    //         it->second(); 
-    //     } else {
-    //         std::cout << "Invalid Choice. Choose 1-6" << std::endl;
-    //     }
-    // }
-    // return 0;
-
-    OrderBookEntry order1{1000,
-                         0.0002,
-                         "2020/03/17 17:01:24.884492",
-                         "BTC/USDT",
-                         OrderBookType::bid};
-    // order1.price = 10000;
-    // order1.amount = 0.002;
-    // order1.timestamp = "2020/03/17 17:01:24.884492";
-    // order1.product = "BTC/USDT";
-    // order1.orderType = OrderBookType::bid;
-
-    std::cout << "The price is " << order1.price << std::endl;
+    std::cout << "The price is " << orders[1].price << std::endl;
 }
