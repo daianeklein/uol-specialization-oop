@@ -66,6 +66,23 @@ double computeHighPrice(std::vector<OrderBookEntry>& entries)
     return high_price;
 }
 
+double computePriceSpread(const std::vector<OrderBookEntry>& entries)
+{
+    double low_price = entries[0].price;  // start with the first price
+    double high_price = entries[0].price; 
+
+    for (const OrderBookEntry& entry : entries) {
+        if (entry.price < low_price) {
+            low_price = entry.price; // update with the new low price
+        }
+        if (entry.price > high_price) {
+            high_price = entry.price; // update with the new high price
+        }
+    }
+
+    return high_price - low_price;
+}
+
 int main() 
 {
     std::vector<OrderBookEntry> entries;
@@ -116,5 +133,9 @@ int main()
     //high price
     double highPrice = computeHighPrice(entries);
     std::cout << "The highest price is: " << highPrice << std::endl;
+
+    //spread
+    double spreadPrice = computePriceSpread(entries);
+    std::cout << "The spread price is " << spreadPrice << std::endl;
 
 }
